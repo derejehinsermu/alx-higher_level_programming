@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" difines a class Square"""
+
 
 class Square:
     """
@@ -21,6 +23,7 @@ class Square:
             ValuError: If size is less than 0.
 
         """
+
         if no isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
