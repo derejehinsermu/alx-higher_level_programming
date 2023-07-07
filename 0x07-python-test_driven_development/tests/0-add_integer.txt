@@ -2,39 +2,27 @@
 # Import the required function
 >>> add_integer = __import__('0-add_integer').add_integer
 
+checking for module docstring
+>>> m = __import__("0-add_integer").add_integer.__doc__
+>>> len(m) > 1
+True
+
+checking for function docstring:
+>>> f = __import__("0-add_integer").add_integer.__doc__
+>>> len(f) > 1
+True
 # Valid arguments
->>> assert add_integer(4, 5) == 9
->>> assert add_integer(10) == 108
->>> assert add_integer(3.4, 7.1) == 10
->>> assert add_integer(3.0 , 4) == 7
+>>> add_integer(4, 5) == 9
+>>> add_integer(10) == 108
+>>> add_integer(3.4, 7.1) == 10
+>>> add_integer(3.0 , 4) == 7
 
 # Invalid arguments
->>> try:
-...     add_integer('6', 4)
-... except TypeError as ex:
-...     assert str(ex) == 'a must be an integer'
->>> try:
-...     add_integer(('6'), 4)
-... except TypeError as ex:
-...     assert str(ex) == 'a must be an integer'
->>> try:
-...     add_integer(6, None)
-... except TypeError as ex:
-...     assert str(ex) == 'b must be an integer'
->>> try:
-...     add_integer(6, '6')
-... except TypeError as ex:
-...     assert str(ex) == 'b must be an integer'
->>> try:
-...     add_integer(float('inf'), float('inf'))
-... except Exception as ex:
-...     assert str(ex) == 'cannot convert float infinity to integer'
->>> try:
-...     add_integer(float('inf'), 3)
-... except Exception as ex:
-...     assert str(ex) == 'cannot convert float infinity to integer'
->>> try:
-...     add_integer(float('NaN'), 23)
-... except Exception as ex:
-...     assert str(ex) == 'cannot convert float NaN to integer'
-
+>>> add_integer('6', 4)
+... TypeError:'a must be an integer'
+>>> add_integer(6, None)
+... TypeError: 'b must be an integer'
+>>> add_integer(6, '6')
+... TypeError:'b must be an integer'
+>>> add_integer(float('inf'), float('inf'))
+... except Exception: 'cannot convert float infinity to integer'
