@@ -1,0 +1,44 @@
+from importlib import import_module
+
+say_my_name = import_module('3-say_my_name').say_my_name
+
+# Test for first name and last name are correct
+>>> say_my_name("Dereje", "Hinsermu")
+# Output: My name is Dereje Hinsermu
+
+# Test for first name is correct and last name is empty
+>>> say_my_name("Dereje")
+# Output: My name is Dereje
+
+# Test for first name is bool and last name is correct
+>>> try:
+...     say_my_name(True, "Hinsermu")
+... except Exception as e:
+...     assert str(e) == "first_name must be a string"
+... else:
+...     raise AssertionError("Expected TypeError")
+
+# Test for first name is correct and last name is int
+>>> try:
+...     say_my_name("Dereje", 10)
+... except Exception as e:
+...     assert str(e) == "last_name must be a string"
+... else:
+...     raise AssertionError("Expected TypeError")
+
+# Test for first name is int and last name is empty
+>>> try:
+...     say_my_name(8)
+... except Exception as e:
+...     assert str(e) == "first_name must be a string"
+... else:
+...     raise AssertionError("Expected TypeError")
+
+# Test for no input
+>>> try:
+...     say_my_name()
+... except Exception as e:
+...     assert str(e) == "say_my_name() missing 1 required positional argument: 'first_name'"
+... else:
+...     raise AssertionError("Expected TypeError")
+
