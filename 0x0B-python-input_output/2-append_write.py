@@ -1,4 +1,4 @@
-#!/usr/python3
+#!/usr/bin/python3
 """define a function called append_write"""
 
 
