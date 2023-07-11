@@ -1,4 +1,4 @@
-#!/urs/bin/python3
+#!/usr/bin/python3
 """ define a function called to_json_string"""
 
 
